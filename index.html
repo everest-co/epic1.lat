@@ -1,273 +1,782 @@
+<!-- epic1.lat -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Wellness Daily - Fitness Tips</title>
-    <meta name="description" content="Expert fitness and wellness advice">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>DU JOUR CHOCOLATE - SAO PAULO</title>
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lora:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --c1: #5D3A1A;
+            --c2: #8B5E3C;
+            --c3: #D4A574;
+            --dark: #1A0F05;
+            --light: #FDF8F3;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+
         body {
-            font-family: 'Source Sans Pro', sans-serif;
-            background: #f8fafc;
-            color: #334155;
-            line-height: 1.8;
+            font-family: 'Lora', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--light);
         }
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .container {
-            max-width: 780px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .article-card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 48px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-        }
-        .category-tag {
-            display: inline-block;
-            background: #dbeafe;
-            color: #1d4ed8;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .article-title {
-            font-family: 'Merriweather', serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 16px;
-            line-height: 1.3;
-        }
-        .article-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 28px;
-        }
-        .article-meta i {
-            margin-right: 6px;
-        }
-        .featured-img {
+
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #8B5E3C44 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
             width: 100%;
-            border-radius: 12px;
-            margin-bottom: 28px;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+            backdrop-filter: blur(20px);
         }
-        .article-content {
-            font-size: 17px;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .article-content h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 24px;
-            color: #0f172a;
-            margin: 32px 0 16px;
-        }
-        .article-content strong {
-            color: #0f172a;
-        }
-        .highlight-box {
-            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-            border-left: 4px solid #10b981;
-            padding: 20px 24px;
-            border-radius: 0 12px 12px 0;
-            margin: 28px 0;
-        }
-        .highlight-box p {
-            margin: 0;
-            color: #065f46;
-        }
-        .cta-button {
+
+        .logo-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: #fff;
-            font-weight: 700;
-            font-size: 18px;
-            padding: 18px 36px;
-            border-radius: 12px;
-            max-width: 400px;
-            margin: 32px auto;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            gap: 1rem;
         }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
-        }
-        .tips-list {
-            margin: 24px 0;
-            padding-left: 0;
-            list-style: none;
-        }
-        .tips-list li {
-            padding: 12px 0 12px 32px;
-            position: relative;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .tips-list li:last-child {
-            border-bottom: none;
-        }
-        .tips-list li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #10b981;
-        }
-        .author-box {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 32px;
-        }
-        .author-avatar {
-            width: 60px;
-            height: 60px;
+
+        .logo-3d {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 50%, var(--c3) 100%);
             border-radius: 50%;
-            object-fit: cover;
-        }
-        .author-info h4 {
-            font-size: 16px;
-            color: #0f172a;
-            margin-bottom: 4px;
-        }
-        .author-info p {
-            font-size: 13px;
-            color: #64748b;
-            margin: 0;
-        }
-        .site-footer {
-            background: #e2e8f0;
-            text-align: center;
-            padding: 32px 20px;
-            font-size: 13px;
-            color: #64748b;
-        }
-        .footer-links {
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 16px;
+            font-size: 36px;
+            font-weight: 900;
+            box-shadow: 0 15px 40px #5D3A1A99, inset 0 -10px 25px rgba(0,0,0,0.4), inset 0 10px 25px rgba(255,255,255,0.3);
+            transform: perspective(600px) rotateX(15deg);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            animation: pulse 3s ease-in-out infinite;
         }
-        .footer-links a {
-            color: #334155;
+
+        @keyframes pulse {
+            0%, 100% { transform: perspective(600px) rotateX(15deg) scale(1); }
+            50% { transform: perspective(600px) rotateX(15deg) scale(1.05); }
+        }
+
+        .logo-3d::before {
+            content: '';
+            position: absolute;
+            inset: 6px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4), transparent);
+            border-radius: 50%;
+        }
+
+        .logo-3d:hover {
+            transform: perspective(600px) rotateX(0deg) rotateY(360deg) scale(1.2);
+            box-shadow: 0 25px 60px #5D3A1Aee, inset 0 -10px 25px rgba(0,0,0,0.4);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', cursive;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, var(--c1), var(--c2), var(--c3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
             font-weight: 600;
-            transition: color 0.2s;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1.05rem;
         }
-        .footer-links a:hover {
-            color: #10b981;
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--c1), var(--c2));
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 2px;
         }
-        .disclaimer-text {
-            max-width: 500px;
-            margin: 12px auto 0;
-            line-height: 1.5;
+
+        nav a:hover::before { width: 100%; }
+        nav a:hover { color: var(--c3); text-shadow: 0 0 20px #5D3A1A88; }
+
+        .hero {
+            margin-top: 90px;
+            background: linear-gradient(135deg, #5D3A1A 0%, #8B5E3C 50%, #D4A574 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        @media (max-width: 640px) {
-            .article-card {
-                padding: 28px 20px;
-            }
-            .article-title {
-                font-size: 26px;
-            }
-            .article-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
+
+        .hero::before {
+            content: '🍫';
+            position: absolute;
+            font-size: 30rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            bottom: -250px;
+            right: -250px;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', cursive;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 5px 30px rgba(0,0,0,0.4);
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--c1);
+            padding: 1.4rem 4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.4rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--c3);
+            transition: all 0.6s;
+            transform: translate(-50%, -50%);
+        }
+
+        .cta-button:hover::before { width: 500px; height: 500px; }
+
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            color: var(--dark);
+        }
+
+        .cta-button span { position: relative; z-index: 1; }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+
+        .features { background: linear-gradient(135deg, #FDF8F3 0%, #D4A57422 100%); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card-3d {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--c1), var(--c2), var(--c3));
+        }
+
+        .feature-card-3d:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 70px #5D3A1A66;
+        }
+
+        .icon-3d {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-radius: 30px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .icon-3d-1 { background: linear-gradient(135deg, var(--c1) 0%, var(--c3) 100%); box-shadow: 0 20px 45px #5D3A1A88, inset 0 -10px 25px rgba(0,0,0,0.3), inset 0 10px 25px rgba(255,255,255,0.2); }
+        .icon-3d-2 { background: linear-gradient(135deg, var(--c2) 0%, var(--c1) 100%); box-shadow: 0 20px 45px #8B5E3C88, inset 0 -10px 25px rgba(0,0,0,0.3), inset 0 10px 25px rgba(255,255,255,0.2); }
+        .icon-3d-3 { background: linear-gradient(135deg, var(--c3) 0%, var(--c1) 100%); box-shadow: 0 20px 45px #D4A57488, inset 0 -10px 25px rgba(0,0,0,0.3), inset 0 10px 25px rgba(255,255,255,0.2); }
+        .icon-3d-4 { background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%); box-shadow: 0 20px 45px #5D3A1A88, inset 0 -10px 25px rgba(0,0,0,0.3), inset 0 10px 25px rgba(255,255,255,0.2); }
+
+        .feature-card-3d:hover .icon-3d { transform: rotateY(360deg) scale(1.1); }
+
+        .feature-card-3d h3 { color: var(--dark); margin-bottom: 1rem; font-size: 1.6rem; font-weight: 800; }
+        .feature-card-3d p { color: #64748b; line-height: 1.9; font-size: 1.05rem; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        .product-body { padding: 2rem; }
+        .product-body h3 { color: var(--dark); margin-bottom: 0.8rem; font-size: 1.6rem; font-weight: 800; }
+        .product-body p { color: #64748b; margin-bottom: 1.5rem; line-height: 1.8; }
+
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 20px;
+            font-size: 1.6rem;
+            font-weight: 900;
+            box-shadow: 0 8px 30px #5D3A1A66;
+        }
+
+        .category-header { text-align: center; margin: 4rem 0 2.5rem; position: relative; }
+
+        .category-title {
+            font-family: 'Playfair Display', cursive;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            display: inline-block;
+            padding: 0 2.5rem;
+            background: var(--light);
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-title::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -300%;
+            right: -300%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--c1), transparent);
+            z-index: -1;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, var(--dark) 0%, #8B5E3C33 100%);
+            color: white;
+            border-radius: 40px;
+            padding: 5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-card-3d {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.4s;
+        }
+
+        .contact-card-3d:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .contact-card-3d h3 { color: var(--c3); margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 1rem; }
+        .contact-card-3d p { margin-bottom: 0.8rem; opacity: 0.95; line-height: 1.8; }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-section h3 { color: var(--c3); margin-bottom: 1.5rem; font-weight: 800; font-size: 1.3rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; transition: all 0.3s; display: block; margin-bottom: 0.8rem; }
+        .footer-section a:hover { color: var(--c3); padding-left: 15px; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 3% auto;
+            padding: 4rem;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+        }
+
+        .close {
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            font-size: 2.5rem;
+            cursor: pointer;
+            color: var(--c1);
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #5D3A1A15;
+        }
+
+        .close:hover { background: var(--c1); color: white; transform: rotate(90deg) scale(1.1); }
+
+        .modal h2 { background: linear-gradient(135deg, var(--c1), var(--c2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; font-size: 2.5rem; font-weight: 900; }
+        .modal h3 { color: var(--dark); margin-top: 2rem; margin-bottom: 1rem; font-weight: 800; font-size: 1.4rem; }
+        .modal p { margin-bottom: 1.2rem; text-align: justify; line-height: 2; color: #64748b; }
+        .modal ul { margin-left: 2rem; margin-bottom: 1.5rem; color: #64748b; }
+        .modal ul li { margin-bottom: 0.8rem; line-height: 1.8; }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2.3rem; }
+            .contact { padding: 3rem 1.5rem; border-radius: 25px; }
+            .modal-content { padding: 2rem; }
+            .logo-text { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <article class="article-card">
-            <span class="category-tag">Fitness & Wellness</span>
-            <h1 class="article-title">5 Morning Habits That Can Transform Your Energy Levels</h1>
-
-            <div class="article-meta">
-                <span><i class="fa-regular fa-calendar"></i> January 15, 2025</span>
-                <span><i class="fa-regular fa-clock"></i> 4 min read</span>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div class="logo-3d">🍫</div>
+                <div class="logo-text">DU JOUR CHOCOLATE</div>
             </div>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#" onclick="openModal('termos')">Termos</a></li>
+                <li><a href="#" onclick="openModal('privacidade')">Privacidade</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80" alt="Person stretching in morning sunlight" class="featured-img">
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>🍫 Chocolates Finos & Artesanais</h1>
+            <p>A experiência premium em chocolates que Moema merece</p>
+            <a href="#produtos" class="cta-button"><span>✨ Descubra Nossos Sabores</span></a>
+        </div>
+    </section>
 
-            <div class="article-content">
-                <p>Starting your day the right way can make a huge difference in how you feel throughout the entire day. <strong>Energy management</strong> is becoming one of the most talked-about topics in wellness circles, and for good reason.</p>
+    <section id="sobre" class="features">
+        <h2 class="section-title">A Arte do Chocolate Du Jour</h2>
+        <p class="section-subtitle">Cada peça é uma obra-prima de sabor e elegância</p>
+        <div class="features-grid">
+            <div class="feature-card-3d">
+                <div class="icon-3d icon-3d-1">🎨</div>
+                <h3>Artesanal</h3>
+                <p>Feitos à mão com técnicas exclusivas</p>
+            </div>
+            <div class="feature-card-3d">
+                <div class="icon-3d icon-3d-2">🌍</div>
+                <h3>Cacau Premium</h3>
+                <p>Selecionado das melhores origens do mundo</p>
+            </div>
+            <div class="feature-card-3d">
+                <div class="icon-3d icon-3d-3">🎁</div>
+                <h3>Presentes</h3>
+                <p>Embalagens sofisticadas para ocasiões especiais</p>
+            </div>
+            <div class="feature-card-3d">
+                <div class="icon-3d icon-3d-4">✨</div>
+                <h3>Experiência</h3>
+                <p>Degustações e momentos inesquecíveis</p>
+            </div>
+        </div>
+    </section>
 
-                <p>We spoke with several fitness experts to compile a list of simple morning habits that anyone can adopt. The best part? These don't require any special equipment or major lifestyle changes.</p>
+    <section id="produtos">
+        <h2 class="section-title">Nossa Coleção</h2>
+        <p class="section-subtitle">Sabores que encantam os sentidos</p>
+        
+        <div class="category-header">
+            <h3 class="category-title">🍫 Tabletes</h3>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Dark 70% Cacau</h3>
+                    <p>Intenso e sofisticado</p>
+                    <span class="price-tag">R$ 32,90</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Ao Leite Premium</h3>
+                    <p>Cremoso e irresistível</p>
+                    <span class="price-tag">R$ 28,90</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Ruby Chocolate</h3>
+                    <p>O quarto tipo de chocolate</p>
+                    <span class="price-tag">R$ 38,90</span>
+                </div>
+            </div>
+        </div>
+        <div class="category-header">
+            <h3 class="category-title">🎁 Caixas Presente</h3>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Caixa Trufas 12un</h3>
+                    <p>Seleção de trufas artesanais</p>
+                    <span class="price-tag">R$ 89,90</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Bombons Finos 24un</h3>
+                    <p>Variedade de bombons premium</p>
+                    <span class="price-tag">R$ 149,90</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🍫</div>
+                <div class="product-body">
+                    <h3>Kit Degustação</h3>
+                    <p>Experiência completa Du Jour</p>
+                    <span class="price-tag">R$ 199,90</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>What the Experts Recommend</h2>
+    <section id="contato" class="contact">
+        <h2 class="section-title" style="color: white; -webkit-text-fill-color: white;">DU JOUR CHOCOLATE</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Venha nos visitar!</p>
+        <div class="contact-grid">
+            <div class="contact-card-3d">
+                <h3>📍 Endereço</h3>
+                <p>R GAIVOTA, 1198, LOJA LOJA 1</p>
+                <p>MOEMA</p>
+                <p>SAO PAULO - SP</p>
+                <p>CEP: 04.522-033</p>
+            </div>
+            <div class="contact-card-3d">
+                <h3>📞 Contato</h3>
+                <p>Telefone: (11) 3168-2720</p>
+                <p>Email: adm@chocolatdujour.com</p>
+                <p>Pedidos e informações</p>
+            </div>
+            <div class="contact-card-3d">
+                <h3>🕐 Horário</h3>
+                <p>Segunda a Sexta: 8h às 20h</p>
+                <p>Sábado: 8h às 18h</p>
+                <p>Domingo: 9h às 14h</p>
+            </div>
+        </div>
+    </section>
 
-                <ul class="tips-list">
-                    <li><strong>Hydrate first thing</strong> — Your body loses water overnight. Start with a glass of water before coffee.</li>
-                    <li><strong>Move for 5-10 minutes</strong> — Even light stretching activates your metabolism.</li>
-                    <li><strong>Get natural light exposure</strong> — Sunlight helps regulate your circadian rhythm.</li>
-                    <li><strong>Avoid screens for 30 minutes</strong> — Give your mind time to wake up naturally.</li>
-                    <li><strong>Eat a protein-rich breakfast</strong> — Stabilizes blood sugar and prevents energy crashes.</li>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Sobre DU JOUR CHOCOLATE</h3>
+                <p>DU JOUR CHOCOLATE S.A.</p>
+                <p>CNPJ: 57.762.072/0014-08</p>
+                <p>DEMAIS - Simples Nacional</p>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#contato">Contato</a></li>
                 </ul>
-
-                <div class="highlight-box">
-                    <p><strong>Key Insight:</strong> Studies suggest that people who follow a consistent morning routine report 40% higher energy levels throughout the day compared to those who don't.</p>
-                </div>
-
-                <p>Many health professionals are now recommending a more <strong>holistic approach</strong> to morning routines. Rather than focusing on just one aspect, the combination of hydration, movement, and nutrition creates a synergistic effect.</p>
-
-                <p><em>Want to learn more about optimizing your daily energy? Click below to discover the full presentation from our wellness research team.</em></p>
             </div>
-
-            <a href="#" class="cta-button">
-                <span>Watch Free Presentation</span>
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <div class="author-box">
-                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=120&q=80" alt="Dr. Sarah Mitchell" class="author-avatar">
-                <div class="author-info">
-                    <h4>Dr. Sarah Mitchell</h4>
-                    <p>Health & Wellness Editor at Wellness Daily</p>
-                </div>
+            <div class="footer-section">
+                <h3>Informações Legais</h3>
+                <ul>
+                    <li><a href="#" onclick="openModal('termos')">Termos de Uso</a></li>
+                    <li><a href="#" onclick="openModal('privacidade')">Política de Privacidade</a></li>
+                </ul>
             </div>
-        </article>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DU JOUR CHOCOLATE - Todos os direitos reservados | SAO PAULO/SP</p>
+        </div>
+    </footer>
+
+    <div id="termos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('termos')">&times;</span>
+            <h2>Termos de Uso</h2>
+            <h3>1. Aceitação dos Termos</h3>
+            <p>Ao utilizar os serviços da DU JOUR CHOCOLATE (DU JOUR CHOCOLATE S.A., CNPJ 57.762.072/0014-08), você concorda integralmente com estes Termos de Uso.</p>
+            <h3>2. Serviços Oferecidos</h3>
+            <p>A DU JOUR CHOCOLATE oferece:</p>
+            <ul>
+                <li>Comércio e serviços conforme atividade registrada no CNPJ</li>
+                <li>Venda de produtos e serviços alimentícios</li>
+                <li>Atendimento presencial e encomendas</li>
+            </ul>
+            <h3>3. Pedidos e Disponibilidade</h3>
+            <p>Todos os pedidos estão sujeitos à disponibilidade de produtos. Produtos artesanais podem ter variações naturais.</p>
+            <h3>4. Preços e Pagamento</h3>
+            <p>Os preços apresentados podem sofrer alterações sem aviso prévio. Aceitamos diversas formas de pagamento.</p>
+            <h3>5. Encomendas Especiais</h3>
+            <p>Encomendas especiais devem ser feitas com antecedência. Personalizações estão sujeitas à disponibilidade.</p>
+            <h3>6. Validade dos Produtos</h3>
+            <p>Nossos produtos são frescos e devem ser consumidos conforme orientação para melhor experiência.</p>
+            <h3>7. Contato</h3>
+            <p>Para dúvidas sobre estes termos, entre em contato através dos canais disponibilizados.</p>
+        </div>
     </div>
 
-    <footer class="site-footer">
-        <nav class="footer-links">
-            <a href="footer/privacy.html">Privacy Policy</a>
-            <a href="footer/terms.html">Terms of Use</a>
-            <a href="footer/disclaimer.html">Disclaimer</a>
-        </nav>
-        <p>Copyright 2025 Wellness Daily. All rights reserved.</p>
-        <p class="disclaimer-text">This site is not a part of the Youtube website or Youtube Inc. Additionally, This site is NOT endorsed by Youtube in any way. YOUTUBE is a trademark of YOUTUBE, Inc.</p>
-    </footer>
+    <div id="privacidade" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacidade')">&times;</span>
+            <h2>Política de Privacidade</h2>
+            <h3>1. Introdução</h3>
+            <p>A DU JOUR CHOCOLATE (DU JOUR CHOCOLATE S.A., CNPJ 57.762.072/0014-08) está comprometida com a proteção da privacidade de seus clientes, em conformidade com a LGPD.</p>
+            <h3>2. Informações que Coletamos</h3>
+            <ul>
+                <li>Dados pessoais: nome, telefone, e-mail</li>
+                <li>Dados de pedidos e preferências</li>
+                <li>Informações de pagamento (processadas com segurança)</li>
+            </ul>
+            <h3>3. Como Utilizamos suas Informações</h3>
+            <ul>
+                <li>Processar pedidos e encomendas</li>
+                <li>Comunicar promoções e novidades (mediante consentimento)</li>
+                <li>Melhorar nossos produtos e serviços</li>
+                <li>Cumprir obrigações legais</li>
+            </ul>
+            <h3>4. Compartilhamento de Dados</h3>
+            <p>Não vendemos suas informações pessoais. Compartilhamos apenas quando necessário para processamento de pedidos ou cumprimento legal.</p>
+            <h3>5. Segurança dos Dados</h3>
+            <p>Implementamos medidas de segurança para proteger suas informações contra acesso não autorizado.</p>
+            <h3>6. Seus Direitos (LGPD)</h3>
+            <ul>
+                <li>Acessar seus dados pessoais</li>
+                <li>Corrigir dados incompletos</li>
+                <li>Solicitar exclusão de dados</li>
+                <li>Revogar consentimento</li>
+            </ul>
+            <h3>7. Contato</h3>
+            <p><strong>Email:</strong> adm@chocolatdujour.com</p>
+            <p><strong>Endereço:</strong> R GAIVOTA, 1198, LOJA LOJA 1, MOEMA, SAO PAULO/SP - CEP: 04.522-033</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#') && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
